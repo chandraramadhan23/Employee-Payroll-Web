@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Bagian;
+use App\Karyawan;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
@@ -30,16 +31,21 @@ class BagianController extends Controller
     }
 
     public function update(Request $request) {
-        $totalGaji = $request->gaji_pokok + $request->transport;
+        // Cari bagian berdasarkan ID
+        $bagian = Bagian::find($request->id);
 
-        Bagian::where('id', $request->id)->update([
+        // Simpan nama bagian lama agar nanti bisa diupdate ke tabel karyawan
+        $namaBagianLama = $bagian->bagian;
 
-            'bagian' => $request->bagian,
-            'gaji_pokok' => $request->gaji_pokok,
-            'transport' => $request->transport,
-            'total_gaji' => $totalGaji,
+        // Update data bagian
+        $bagian->bagian = $request->bagian;
+        $bagian->gaji_pokok = $request->gaji_pokok;
+        $bagian->transport = $request->transport;
+        $bagian->total_gaji = $bagian->gaji_pokok + $bagian->transport;
+        $bagian->save();
 
-        ]);
+        // Update bagian di tabel Karyawan
+        Karyawan::where('bagian', $namaBagianLama)->update(['bagian' => $request->bagian]);
     }
 
     public function delete($id) {
