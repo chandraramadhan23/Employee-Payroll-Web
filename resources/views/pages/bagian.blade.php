@@ -180,9 +180,7 @@
                         },
                         success: function() {
                             notifAlert('Berhasil', 'Data berhasil ditambah!', 'success')
-                            setTimeout(() => {
-                                showTable()
-                            }, 1000);
+                            $('#tableBagian').DataTable().ajax.reload();                            
 
                             $('#modal').modal('hide')
                             $('#bagian').val('')
@@ -191,7 +189,7 @@
                         },
                         error: function() {
                             notifAlert('Gagal', 'Data gagal ditambah!', 'error')
-                            showTable()
+                            $('#tableBagian').DataTable().ajax.reload();
                             $('#modal').modal('hide')
                         }
                     })
@@ -274,9 +272,7 @@
     
                         success: function() {
                             notifAlert('Berhasil', 'Data berhasil diedit!', 'success')
-                            setTimeout(() => {
-                                showTable()
-                            }, 1000);
+                            $('#tableBagian').DataTable().ajax.reload();
 
                             $('#modal').modal('hide')
                             $('#bagian').val('')
@@ -285,7 +281,7 @@
                         },
                         error: function() {
                             notifAlert('Gagal', 'Data gagal diedit!', 'error')
-                            showTable()
+                            $('#tableBagian').DataTable().ajax.reload();
                             $('#modal').modal('hide')
                         }
                     })
@@ -317,10 +313,7 @@
                         url: '/deleteBagian/' + id,
                         success: function () {
                             notifAlert('Berhasil', 'Data berhasil dihapus', 'success')
-
-                            setTimeout(function() {
-                                showTable();
-                            }, 1000);
+                            $('#tableBagian').DataTable().ajax.reload();
                         },
                         error: function () {
                             notifAlert('Gagal', 'Data gagal dihapus', 'error')

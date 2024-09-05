@@ -18,7 +18,7 @@ class CreateKaryawansTable extends Migration
             $table->string('nik');
             $table->string('nama');
             $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan']);
-            $table->string('bagian');
+            $table->string('bagian')->nullable();
             $table->date('tanggal_masuk');
             $table->timestamps();
         });

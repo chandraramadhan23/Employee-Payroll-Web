@@ -49,6 +49,13 @@ class BagianController extends Controller
     }
 
     public function delete($id) {
-        Bagian::find($id)->delete();
+        // Temukan bagian berdasarkan ID
+        $bagian = Bagian::findOrFail($id);
+
+        // Set kolom 'bagian' di tabel Karyawan menjadi null jika bagian tersebut dihapus
+        Karyawan::where('bagian', $bagian->bagian)->update(['bagian' => null]);
+
+        // Hapus bagian dari tabel Bagian
+        $bagian->delete();
     }
 }

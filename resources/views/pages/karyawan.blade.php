@@ -197,9 +197,7 @@
                         },
                         success: function() {
                             notifAlert('Berhasil', 'Data berhasil ditambah!', 'success')
-                            setTimeout(() => {
-                                showTable()
-                            }, 1000);
+                            $('#tableKaryawan').DataTable().ajax.reload();
 
                             $('#modal').modal('hide')
                             $('#nik').val('')
