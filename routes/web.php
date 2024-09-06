@@ -47,3 +47,13 @@ Route::get('/showTableBagian', 'BagianController@show');
 Route::post('/addBagian', 'BagianController@add');
 Route::put('/editBagian', 'BagianController@update');
 Route::delete('/deleteBagian/{id}', 'BagianController@delete');
+
+
+// Data Gaji
+Route::get('/dataGaji', 'DataGajiController@index');
+
+
+
+
+// Slip Gaji
+Route::get('/slipGaji', 'SlipGajiController@index');

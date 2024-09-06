@@ -13,10 +13,10 @@
                             <table id="tableAdmin" class="table table-striped table-hover nowrap align-middle" style="width:100%">
                                 <thead>
                                     <tr class="table-light">
-                                        <th data-ordering="false">Hapus</th>
                                         <th data-ordering="false">Nama</th>
                                         <th data-ordering="false">Username</th>
                                         <th data-ordering="false">Password</th>
+                                        <th data-ordering="false"></th>
                                     </tr>
                                 </thead>
                             </table>
@@ -87,6 +87,9 @@
                 url: '/showTableAdmin',
             },
             columns: [
+                {data: 'nama'},
+                {data: 'username'},
+                {data: 'password'},
                 {render: function(data, type, row) {
                     return `
                         <button class='btn btn-transparent deleteAdmin p-2' data-id='${row.id}' style="background-color: transparent; border: none;">
@@ -95,9 +98,6 @@
 
                     `
                 }, width: '13%'},
-                {data: 'nama'},
-                {data: 'username'},
-                {data: 'password'},
             ]
         })
     }

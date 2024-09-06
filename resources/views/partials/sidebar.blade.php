@@ -24,8 +24,8 @@
                 </a>
             </li>
 
-            {{-- Pages --}}
-            <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-6"></i><span class="hide-menu">Pages</span></li>
+            {{-- Kelola --}}
+            <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-6"></i><span class="hide-menu">Kelola</span></li>
 
             <li class="sidebar-item">
                 <a class="sidebar-link {{ Request::is('admin*') ? 'active' : '' }}" href="/admin" aria-expanded="false">
@@ -51,6 +51,27 @@
                         <iconify-icon icon="solar:bookmark-square-minimalistic-bold-duotone" class="fs-6"></iconify-icon>
                     </span>
                     <span class="hide-menu">Bagian</span>
+                </a>
+            </li>
+
+            {{-- Gaji --}}
+            <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-6"></i><span class="hide-menu">Gaji</span></li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link {{ Request::is('dataGaji*') ? 'active' : '' }}" href="/dataGaji" aria-expanded="false">
+                    <span>
+                        <iconify-icon icon="solar:layers-minimalistic-bold-duotone" class="fs-6"></iconify-icon>
+                    </span>
+                    <span class="hide-menu">Data Gaji</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link {{ Request::is('slipGaji*') ? 'active' : '' }}" href="/slipGaji" aria-expanded="false">
+                    <span>
+                        <iconify-icon icon="solar:danger-circle-bold-duotone" class="fs-6"></iconify-icon>
+                    </span>
+                    <span class="hide-menu">Slip Gaji</span>
                 </a>
             </li>
 
