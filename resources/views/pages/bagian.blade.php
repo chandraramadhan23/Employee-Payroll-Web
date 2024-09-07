@@ -180,7 +180,7 @@
                         },
                         success: function() {
                             notifAlert('Berhasil', 'Data berhasil ditambah!', 'success')
-                            $('#tableBagian').DataTable().ajax.reload();                            
+                            $('#tableBagian').DataTable().ajax.reload();
 
                             $('#modal').modal('hide')
                             $('#bagian').val('')

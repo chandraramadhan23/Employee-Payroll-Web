@@ -51,6 +51,7 @@ Route::delete('/deleteBagian/{id}', 'BagianController@delete');
 
 // Data Gaji
 Route::get('/dataGaji', 'DataGajiController@index');
+Route::get('/showTableDataGaji', 'DataGajiController@show');
 
 
 

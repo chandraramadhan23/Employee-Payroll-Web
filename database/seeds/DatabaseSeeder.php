@@ -1,9 +1,10 @@
 <?php
 
+
 use App\Admin;
 use App\Bagian;
+use App\DataGaji;
 use App\Karyawan;
-use App\KaryawanInBagian;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,6 +16,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+
+
+
         Karyawan::create([
             'nik' => '12100034521',
             'nama' => 'Pratama Bagus S',
@@ -48,6 +52,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
+        
+
+
 
         Bagian::create([
             'bagian' => 'Web Developer',
@@ -73,6 +80,8 @@ class DatabaseSeeder extends Seeder
 
 
 
+
+
         Admin::create([
             'nama' => 'Chandra Ramadhan',
             'username' => 'chandra',
@@ -84,5 +93,46 @@ class DatabaseSeeder extends Seeder
             'username' => 'meleni',
             'password' => 'meleni',
         ]);
+
+
+
+
+
+
+        
+        DataGaji::create([
+            'nik' => '12100034521',
+            'nama' => 'Pratama Bagus S',
+            'jenis_kelamin' => 'Laki-laki',
+            'bagian' => 'Web Developer',
+            'gaji_pokok' => 8000000,    
+            'transport' => 300000,
+            'total_gaji' => 8000000 + 300000,
+            'bulan_tahun' => '2024-07-01'
+        ]);
+
+        DataGaji::create([
+            'nik' => '99100088599',
+            'nama' => 'Ananda Respodi',
+            'jenis_kelamin' => 'Laki-laki',
+            'bagian' => 'Data Analyst',
+            'gaji_pokok' => 7500000,
+            'transport' => 300000,
+            'total_gaji' => 7500000 + 300000,
+            'bulan_tahun' => '2024-08-01'
+        ]);
+
+        DataGaji::create([
+            'nik' => '12198700023',
+            'nama' => 'Cyntia Agustin',
+            'jenis_kelamin' => 'Perempuan',
+            'bagian' => 'UI/UX Designer',
+            'gaji_pokok' => 6000000,
+            'transport' => 300000,
+            'total_gaji' => 6000000 + 300000,
+            'bulan_tahun' => '2024-08-01'
+        ]);
+
+
     }
 }
