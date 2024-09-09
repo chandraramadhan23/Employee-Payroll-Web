@@ -11,4 +11,8 @@ class DataKaryawan extends Model
     public function bagian() {
         return $this->belongTo(DataBagian::class, 'bagian', 'bagian');
     }
+
+    public function data_kehadirans() {
+        return $this->hasMany(DataKehadiran::class, 'karyawan_id');
+    }
 }

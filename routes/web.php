@@ -51,6 +51,8 @@ Route::delete('/deleteBagian/{id}', 'BagianController@delete');
 
 // Kehadiran
 Route::get('/kehadiran', 'KehadiranController@index');
+Route::get('/showTableKehadiran', 'KehadiranController@show');
+Route::post('/addDataKehadiran', 'KehadiranController@add');
 
 
 // Data Gaji
