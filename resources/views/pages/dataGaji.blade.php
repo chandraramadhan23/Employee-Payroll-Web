@@ -76,6 +76,7 @@
                                     <th data-ordering="false">Bagian</th>
                                     <th data-ordering="false">Gaji Pokok</th>
                                     <th data-ordering="false">Transport</th>
+                                    <th data-ordering="false">Potongan</th>
                                     <th data-ordering="false">Total Gaji</th>
                                 </tr>
                             </thead>
@@ -139,6 +140,10 @@
             },
             {
                 data: 'transport',
+                render: data => (isNaN(numericValue = parseFloat(data)) ? '' : numericValue.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' }))
+            },
+            {
+                data: 'total_potongan',
                 render: data => (isNaN(numericValue = parseFloat(data)) ? '' : numericValue.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' }))
             },
             {

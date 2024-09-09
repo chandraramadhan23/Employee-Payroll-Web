@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class DataGaji extends Model
 {
-    //
+    protected $guarded = [];
 }

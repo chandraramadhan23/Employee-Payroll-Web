@@ -107,7 +107,8 @@ class DatabaseSeeder extends Seeder
             'bagian' => 'Web Developer',
             'gaji_pokok' => 8000000,    
             'transport' => 300000,
-            'total_gaji' => 8000000 + 300000,
+            'total_potongan' => 75000,
+            'total_gaji' => 8000000 + 300000 - 75000,
             'bulan_tahun' => '2024-07-01'
         ]);
 
@@ -118,7 +119,8 @@ class DatabaseSeeder extends Seeder
             'bagian' => 'Data Analyst',
             'gaji_pokok' => 7500000,
             'transport' => 300000,
-            'total_gaji' => 7500000 + 300000,
+            'total_potongan' => 25000,
+            'total_gaji' => 7500000 + 300000 - 25000,
             'bulan_tahun' => '2024-08-01'
         ]);
 
@@ -129,7 +131,8 @@ class DatabaseSeeder extends Seeder
             'bagian' => 'UI/UX Designer',
             'gaji_pokok' => 6000000,
             'transport' => 300000,
-            'total_gaji' => 6000000 + 300000,
+            'total_potongan' => 50000,
+            'total_gaji' => 6000000 + 300000 - 50000,
             'bulan_tahun' => '2024-08-01'
         ]);
 

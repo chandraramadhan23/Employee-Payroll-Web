@@ -21,6 +21,7 @@ class CreateDataGajisTable extends Migration
             $table->string('bagian');
             $table->unsignedBigInteger('gaji_pokok');
             $table->unsignedBigInteger('transport');
+            $table->unsignedBigInteger('total_potongan')->nullable();
             $table->unsignedBigInteger('total_gaji')->nullable();
             $table->date('bulan_tahun');
             $table->timestamps();

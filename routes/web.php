@@ -49,6 +49,10 @@ Route::put('/editBagian', 'BagianController@update');
 Route::delete('/deleteBagian/{id}', 'BagianController@delete');
 
 
+// Kehadiran
+Route::get('/kehadiran', 'KehadiranController@index');
+
+
 // Data Gaji
 Route::get('/dataGaji', 'DataGajiController@index');
 Route::get('/showTableDataGaji', 'DataGajiController@show');
