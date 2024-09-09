@@ -2,9 +2,9 @@
 
 
 use App\Admin;
-use App\Bagian;
+use App\DataBagian;
 use App\DataGaji;
-use App\Karyawan;
+use App\DataKaryawan;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,66 +16,78 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-
-
-
-        Karyawan::create([
+        DataKaryawan::create([
             'nik' => '12100034521',
             'nama' => 'Pratama Bagus S',
             'jenis_kelamin' => 'Laki-laki',
             'bagian' => 'Web Developer',
-            'tanggal_masuk' => '2024-08-27'
+            'gaji_pokok' => 8000000,
+            'transport' => 300000,
+            'total_gaji' => 8000000 + 300000,
+            'tanggal_masuk' => '2024-08-27',
         ]);
 
-        Karyawan::create([
+        DataKaryawan::create([
             'nik' => '99100088599',
             'nama' => 'Ananda Respodi',
             'jenis_kelamin' => 'Laki-laki',
             'bagian' => 'Data Analyst',
-            'tanggal_masuk' => '2024-09-01'
+            'gaji_pokok' => 7500000,
+            'transport' => 300000,
+            'total_gaji' => 7500000 + 300000,
+            'tanggal_masuk' => '2024-09-01',
         ]);
 
-        Karyawan::create([
+        DataKaryawan::create([
             'nik' => '12198700023',
             'nama' => 'Cyntia Agustin',
             'jenis_kelamin' => 'Perempuan',
             'bagian' => 'UI/UX Designer',
-            'tanggal_masuk' => '2024-07-28'
+            'gaji_pokok' => 6000000,
+            'transport' => 300000,
+            'total_gaji' => 6000000 + 300000,
+            'tanggal_masuk' => '2024-07-28',
         ]);
 
-        Karyawan::create([
+        DataKaryawan::create([
             'nik' => '45598700789',
             'nama' => 'Floren Putri Maleron',
             'jenis_kelamin' => 'Perempuan',
             'bagian' => 'UI/UX Designer',
-            'tanggal_masuk' => '2024-07-28'
+            'gaji_pokok' => 6000000,
+            'transport' => 300000,
+            'total_gaji' => 6000000 + 300000,
+            'tanggal_masuk' => '2024-07-28',
         ]);
 
 
-        
 
 
 
-        Bagian::create([
+
+        DataBagian::create([
             'bagian' => 'Web Developer',
             'gaji_pokok' => 8000000,
             'transport' => 300000,
             'total_gaji' => 8000000 + 300000,
         ]);
 
-        Bagian::create([
+        DataBagian::create([
             'bagian' => 'Data Analyst',
             'gaji_pokok' => 7500000,
             'transport' => 300000,
             'total_gaji' => 7500000 + 300000,
         ]);
 
-        Bagian::create([
+        DataBagian::create([
             'bagian' => 'UI/UX Designer',
             'gaji_pokok' => 6000000,
             'transport' => 300000,
             'total_gaji' => 6000000 + 300000,
         ]);
+
+
+
 
 
 

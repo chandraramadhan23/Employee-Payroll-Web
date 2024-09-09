@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Karyawan extends Model
+class DataKaryawan extends Model
 {
     protected $guarded = [];
 
     public function bagian() {
-        return $this->belongTo(Bagian::class, 'bagian', 'bagian');
+        return $this->belongTo(DataBagian::class, 'bagian', 'bagian');
     }
 }
