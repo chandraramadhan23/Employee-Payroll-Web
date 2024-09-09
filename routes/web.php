@@ -58,6 +58,7 @@ Route::post('/addDataKehadiran', 'KehadiranController@add');
 // Data Gaji
 Route::get('/dataGaji', 'DataGajiController@index');
 Route::get('/showTableDataGaji', 'DataGajiController@show');
+Route::post('/cetakGaji', 'DataGajiController@cetak');
 
 
 

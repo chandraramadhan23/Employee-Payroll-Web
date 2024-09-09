@@ -8,7 +8,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5>Kehadiran Karyawan</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime.</p>
+                        <p>Input kehadiran karyawan berdasarkan bulan dan tahun</p>
 
                         <div id="formInput" class="mb-3">
                             <div class="row mb-4">
@@ -47,6 +47,15 @@
                             <button type="button" class="btn btn-warning" id="filter">Filter</button>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- Alert --}}
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="cardAlertInfo" class="alert alert-info" role="alert">
+                    Potongan Sakit : <strong>Rp. 25.000</strong>, dan Potongan Alpha : <strong>Rp. 50.000</strong>
                 </div>
             </div>
         </div>
@@ -134,13 +143,13 @@
             {
                 data: 'sakit',
                 render: function(data, type, row) {
-                    return `<input type="number" class="form-control" name="sakit" value="${data || 0}" />`;
+                    return `<input type="number" class="form-control" name="sakit" value="${data || 0}" min="0" onblur="setDefaultValue(this)" />`;
                 }
             },
             {
                 data: 'alpha',
                 render: function(data, type, row) {
-                    return `<input type="number" class="form-control" name="alpha" value="${data || 0}" />`;
+                    return `<input type="number" class="form-control" name="alpha" value="${data || 0}" min="0" onblur="setDefaultValue(this)" />`;
                 }
             }
         ]
@@ -175,6 +184,15 @@
     filter()
 
 
+
+    // Default Input Value
+    function setDefaultValue(element) {
+        if ($(element).val() === '') {
+            $(element).val(0); // Set value menjadi 0 jika kosong
+        }
+    }
+
+
     // Submit
     $('#submit').hide();
     function submit() {
@@ -187,8 +205,9 @@
             $('#tableDataKehadiran tbody tr').each(function() {
                 var row = $(this);
                 var karyawanId = row.find('td').eq(0).text(); // Ambil id karyawan dari kolom pertama
-                var sakit = row.find('input[name="sakit"]').val(); // Ambil nilai sakit
-                var alpha = row.find('input[name="alpha"]').val(); // Ambil nilai alpha
+                var sakit = row.find('input[name="sakit"]').val() || 0; // Jika null, anggap 0
+                var alpha = row.find('input[name="alpha"]').val() || 0; // Jika null, anggap 0
+
 
                 dataKehadiran.push({
                     karyawan_id: karyawanId,

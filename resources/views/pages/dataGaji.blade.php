@@ -8,7 +8,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5>Data Gaji Karyawan</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime.</p>
+                        <p>Data semua gaji karyawan berdasarkan bulan dan tahun</p>
 
                         <div id="formInput" class="mb-3">
                             <div class="row mb-4">
@@ -44,8 +44,9 @@
                                 </div>
                             </div>
 
+                            <p style="color: red">Klik tombol <strong>Filter</strong> sebelum melakukann <strong>Cetak</strong>!</p>
                             <button type="button" class="btn btn-warning" id="filter">Filter</button>
-                            <button type="button" class="btn btn-info" id="cetak">Cetak</button>
+                            <button type="button" class="btn btn-info" id="cetak" style="display: none">Cetak</button>
                         </div>
                     </div>
                 </div>
@@ -166,18 +167,61 @@
                 $('#bulan').val(null);
                 $('#tahun').val(null);
 
-                ('#cardAlert').hide(); // Sembunyikan alert jika inputan tidak lengkap
+                $('#cardAlert').hide();
+                $('#cetak').hide();
             } else {
                 // Tampilkan alert dengan bulan dan tahun yang dipilih
                 $('#textBulanAlert').text($('#bulan option:selected').text());
                 $('#textTahunAlert').text(tahun);
                 $('#cardAlert').show();
+                $('#cetak').show();
 
                 table.ajax.reload();
             }
         });
     }
     filter()
+
+
+    // Cetak
+    function cetak() {
+        $('#cetak').click(function() {
+            // Ambil data dari DataTable
+            var data = table.rows().nodes().to$().map(function() {
+                var row = $(this);
+                return {
+                    no: row.find('td').eq(0).text(),
+                    nik: row.find('td').eq(1).text(),
+                    nama: row.find('td').eq(2).text(),
+                    jenis_kelamin: row.find('td').eq(3).text(),
+                    bagian: row.find('td').eq(4).text(),
+                    gaji_pokok: row.find('td').eq(5).text(),
+                    transport: row.find('td').eq(6).text(),
+                    total_potongan: row.find('td').eq(7).text(),
+                    total_gaji: row.find('td').eq(8).text()
+                };
+            }).get();
+
+            // Kirim data melalui AJAX
+            $.ajax({
+                url: "/cetakGaji",
+                type: "post",
+                data: {
+                    _token: "{{ csrf_token() }}", // Token CSRF untuk Laravel
+                    data: JSON.stringify(data), // Data dalam format JSON
+                    bulan: $('#bulan').val(),
+                    tahun: $('#tahun').val(),
+                },
+                success: function(response) {
+                    // Buka halaman cetak di tab baru
+                    var newWindow = window.open('cetakGaji', '_blank');
+                    newWindow.document.write(response);
+                }
+            });
+        });
+    }
+    cetak();
+
 </script>
 
 @endsection
