@@ -13,58 +13,62 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.dashboard');
+Route::get('/', 'LoginController@index')->name('login');
+Route::post('/login', 'LoginController@login');
+Route::post('/logout', 'LogoutController@logout');
+
+
+Route::middleware('auth')->group(function() {
+
+    // Dashboard
+    Route::get('/dashboard', 'DashboardController@index');
+    
+    
+    // Admin
+    Route::get('/admin', 'AdminController@index');
+    Route::get('/showTableAdmin', 'AdminController@show');
+    Route::post('/addAdmin', 'AdminController@add');
+    Route::delete('/deleteAdmin/{id}', 'AdminController@delete');
+    
+    
+    
+    // Karyawan
+    Route::get('/karyawan', 'KaryawanController@index');
+    Route::get('/showTableKaryawan', 'KaryawanController@show');
+    Route::post('/addKaryawan', 'KaryawanController@add');
+    Route::get('/getEditKaryawan/{id}', 'KaryawanController@getUpdate');
+    Route::put('/putEditKaryawan/{id}', 'KaryawanController@update');
+    Route::delete('/deleteKaryawan', 'KaryawanController@delete');
+    
+    
+    
+    // Bagian
+    Route::get('/bagian', 'BagianController@index');
+    Route::get('/showTableBagian', 'BagianController@show');
+    Route::post('/addBagian', 'BagianController@add');
+    Route::put('/editBagian', 'BagianController@update');
+    Route::delete('/deleteBagian/{id}', 'BagianController@delete');
+    
+    
+    // Kehadiran
+    Route::get('/kehadiran', 'KehadiranController@index');
+    Route::get('/showTableKehadiran', 'KehadiranController@show');
+    Route::post('/addDataKehadiran', 'KehadiranController@add');
+    
+    
+    // Data Gaji
+    Route::get('/dataGaji', 'DataGajiController@index');
+    Route::get('/showTableDataGaji', 'DataGajiController@show');
+    Route::post('/cetakGaji', 'DataGajiController@cetak');
+    
+    
+    
+    
+    // Slip Gaji
+    Route::get('/slipGaji', 'SlipGajiController@index');
+    Route::get('/showOptionBagian', 'SlipGajiController@showOption');
+    Route::get('/cetakSlipGaji', 'SlipGajiController@cetakSlipGaji');
+
 });
 
-
-
-// Dashboard
-Route::get('/dashboard', 'DashboardController@index');
-
-
-// Admin
-Route::get('/admin', 'AdminController@index');
-Route::get('/showTableAdmin', 'AdminController@show');
-Route::post('/addAdmin', 'AdminController@add');
-Route::delete('/deleteAdmin/{id}', 'AdminController@delete');
-
-
-
-// Karyawan
-Route::get('/karyawan', 'KaryawanController@index');
-Route::get('/showTableKaryawan', 'KaryawanController@show');
-Route::post('/addKaryawan', 'KaryawanController@add');
-Route::get('/getEditKaryawan/{id}', 'KaryawanController@getUpdate');
-Route::put('/putEditKaryawan/{id}', 'KaryawanController@update');
-Route::delete('/deleteKaryawan', 'KaryawanController@delete');
-
-
-
-// Bagian
-Route::get('/bagian', 'BagianController@index');
-Route::get('/showTableBagian', 'BagianController@show');
-Route::post('/addBagian', 'BagianController@add');
-Route::put('/editBagian', 'BagianController@update');
-Route::delete('/deleteBagian/{id}', 'BagianController@delete');
-
-
-// Kehadiran
-Route::get('/kehadiran', 'KehadiranController@index');
-Route::get('/showTableKehadiran', 'KehadiranController@show');
-Route::post('/addDataKehadiran', 'KehadiranController@add');
-
-
-// Data Gaji
-Route::get('/dataGaji', 'DataGajiController@index');
-Route::get('/showTableDataGaji', 'DataGajiController@show');
-Route::post('/cetakGaji', 'DataGajiController@cetak');
-
-
-
-
-// Slip Gaji
-Route::get('/slipGaji', 'SlipGajiController@index');
-Route::get('/showOptionBagian', 'SlipGajiController@showOption');
-Route::get('/cetakSlipGaji', 'SlipGajiController@cetakSlipGaji');
 

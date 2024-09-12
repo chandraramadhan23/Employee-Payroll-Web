@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Admin;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\DataTables;
 
 class AdminController extends Controller
@@ -13,21 +14,21 @@ class AdminController extends Controller
     }
 
     public function show() {
-        $admins = Admin::all();
+        $admins = User::all();
 
         return DataTables::of($admins)->make(true);
     }
 
     public function add(Request $request) {
-        Admin::create([
+        User::create([
             'nama' => $request->nama,
             'username' => $request->username,
-            'password' => $request->password,
+            'password' => Hash::make($request->password),
         ]);
     }
 
     public function delete($id) {
-        $admin = Admin::findOrFail($id);
+        $admin = User::findOrFail($id);
         $admin->delete();
     }
 }

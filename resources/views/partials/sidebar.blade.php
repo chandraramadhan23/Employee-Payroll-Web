@@ -88,7 +88,7 @@
             <li class="nav-small-cap"><iconify-icon icon="solar:menu-dots-linear" class="nav-small-cap-icon fs-6" class="fs-6"></iconify-icon><span class="hide-menu">AUTH</span></li>
 
             <li class="sidebar-item">
-                <a class="sidebar-link {{ Request::is('logout*') ? 'active' : '' }}" href="/logout" aria-expanded="false">
+                <a id="logout" class="sidebar-link {{ Request::is('logout*') ? 'active' : '' }}" aria-expanded="false">
                     <span>
                         <iconify-icon icon="solar:login-3-bold-duotone" class="fs-6"></iconify-icon>
                     </span>

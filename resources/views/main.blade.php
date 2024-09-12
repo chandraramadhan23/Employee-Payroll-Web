@@ -67,6 +67,38 @@
     {{-- Modals --}}
     @yield('modal')
 
+
+    <script>
+        $(document).on('click', '#logout', function(){
+            Swal.fire({
+                title: "Anda yakin?",
+                text: "Anda ingin logout dari PayrollApp",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Logout"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: 'post',
+                        url: '/logout',
+                        success: function() {
+                            window.location.href = '/';
+                        },
+                        error: function() {
+                            Swal.fire({
+                                title: "Gagal!",
+                                text: "Anda tidak bisa logout",
+                                icon: "error"
+                            });
+                        }
+                    });
+                }
+            })
+        }) 
+    </script>
+
 </body>
 
 </html>

@@ -55,11 +55,11 @@
                 </tr>
                 <tr>
                     <td>Alpha ({{ $kehadiran->alpha ?? 0 }} hari)</td>
-                    <td>Rp {{ number_format($kehadiran->alpha * 50000, 0, ',', '.') }}</td>
+                    <td>Rp {{ number_format(($kehadiran->alpha ?? 0) * 50000, 0, ',', '.') }}</td>
                 </tr>
                 <tr>
                     <td>Sakit ({{ $kehadiran->sakit ?? 0 }} hari)</td>
-                    <td>Rp {{ number_format($kehadiran->sakit * 25000, 0, ',', '.') }}</td>
+                    <td>Rp {{ number_format(($kehadiran->sakit ?? 0) * 25000, 0, ',', '.') }}</td>
                 </tr>
                 <tr>
                     <td><strong>Total Potongan</strong></td>
