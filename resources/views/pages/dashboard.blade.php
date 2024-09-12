@@ -27,17 +27,17 @@
                             <div class="col-4">
                             <iconify-icon icon="solar:laptop-minimalistic-line-duotone" class="fs-7 d-flex text-primary"></iconify-icon>
                             <span class="fs-11 mt-2 d-block text-nowrap">Admin</span>
-                            <h4 class="mb-0 mt-1">3</h4>
+                            <h4 class="mb-0 mt-1">{{ $totalAdmin }}</h4>
                             </div>
                             <div class="col-4">
                             <iconify-icon icon="solar:smartphone-line-duotone" class="fs-7 d-flex text-secondary"></iconify-icon>
                             <span class="fs-11 mt-2 d-block text-nowrap">Karyawan</span>
-                            <h4 class="mb-0 mt-1">12</h4>
+                            <h4 class="mb-0 mt-1">{{ $totalKaryawan }}</h4>
                             </div>
                             <div class="col-4">
                             <iconify-icon icon="solar:tablet-line-duotone" class="fs-7 d-flex text-success"></iconify-icon>
                             <span class="fs-11 mt-2 d-block text-nowrap">Bagian</span>
-                            <h4 class="mb-0 mt-1">3</h4>
+                            <h4 class="mb-0 mt-1">{{ $totalBagian }}</h4>
                             </div>
                         </div>
                     </div>

@@ -10,7 +10,7 @@
     </ul>
     <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
         <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">        
-            <a href="#" target="_blank"
+            <a href="/kehadiran"
                 class="btn btn-success"><span class="d-none d-md-block">Input Kehadiran </span> <span class="d-block d-md-none">Kehadiran</span>
             </a>
             <li class="nav-item dropdown">
