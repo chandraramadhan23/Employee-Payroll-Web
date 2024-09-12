@@ -65,3 +65,6 @@ Route::post('/cetakGaji', 'DataGajiController@cetak');
 
 // Slip Gaji
 Route::get('/slipGaji', 'SlipGajiController@index');
+Route::get('/showOptionBagian', 'SlipGajiController@showOption');
+Route::get('/cetakSlipGaji', 'SlipGajiController@cetakSlipGaji');
+
